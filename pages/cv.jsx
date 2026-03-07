@@ -26,6 +26,14 @@ export default function CV() {
             <FaGithub />
           </a>
         </div>
+
+        <a
+          href="/cv.pdf"
+          download="cv.pdf"
+          className="inline-block mt-6 px-5 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
+        >
+          Download CV
+        </a>
       </header>
 
       <main className="max-w-4xl mx-auto p-6 space-y-12">

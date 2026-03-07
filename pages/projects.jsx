@@ -12,7 +12,7 @@ const Projects = () => {
       description:
         "A scalable full-stack e-commerce platform featuring secure Stripe payments, authentication, product management, cart logic, and admin analytics dashboard.",
       img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1170&q=80",
-      live: "https://roadtrip-plan.netlify.app/",
+      live: "https://jumatech-shopper.netlify.app/",
       github: "https://github.com/kevin-ar-cmd-lab/E-commerce-app.git",
     },
     {

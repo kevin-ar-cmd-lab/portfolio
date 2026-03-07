@@ -48,7 +48,7 @@ export default function About() {
             <div className="flex-shrink-0">
               <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-500 shadow-lg">
                 <Image
-                  src="/kevinjuma.jpg"
+                  src="/kevinjuma.jpeg"
                   alt="Kevin Juma"
                   width={128}
                   height={128}

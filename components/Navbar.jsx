@@ -28,14 +28,6 @@ export default function Navbar() {
   const isActiveLink = (link) =>
     link.type === 'section' ? isSectionActive(link.href) : isExactActive(link.href);
 
-  const handleLinkClick = (href) => {
-    setTimeout(() => {
-      if (window.location.pathname === href) {
-        window.location.reload();
-      }
-    }, 50);
-  };
-
   return (
     <>
       {/* Top Navbar */}
@@ -68,7 +60,6 @@ export default function Navbar() {
                   <Link
                     key={href}
                     href={href}
-                    onClick={() => handleLinkClick(href)}
                     className="relative flex items-center space-x-1 font-medium transition-colors duration-300"
                   >
                     <Icon
@@ -126,12 +117,12 @@ export default function Navbar() {
                 <Link
                   key={href}
                   href={href}
-                  onClick={() => handleLinkClick(href)}
                   className={`flex flex-col items-center text-xs font-medium transition-colors duration-300 ${
                     isActive
                       ? 'text-blue-500 dark:text-blue-400'
-                      : 'text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-300'
+                      : 'text-gray-500 dark:text-gray-400'
                   }`}
+                  aria-current={isActive ? 'page' : undefined}
                 >
                   <Icon className="h-5 w-5 mb-1" aria-hidden="true" />
                   {label}

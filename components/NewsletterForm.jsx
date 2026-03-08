@@ -13,6 +13,7 @@ export default function NewsletterForm({ variant = 'card' }) {
   const [status, setStatus] = useState(null); // { type: 'success' | 'error', message: string }
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
 
   const validateEmail = (email) => {
     const trimmed = email.trim();
@@ -47,11 +48,20 @@ export default function NewsletterForm({ variant = 'card' }) {
       const data = await res.json();
 
       if (res.ok) {
-        setStatus({ type: 'success', message: data.message || 'Subscribed successfully.' });
+        const alreadyRegistered = Boolean(data.alreadyRegistered);
+        setIsAlreadyRegistered(alreadyRegistered);
+        setStatus({
+          type: 'success',
+          message:
+            data.message ||
+            (alreadyRegistered
+              ? 'Welcome back! This email is already registered to the newsletter.'
+              : 'You are now subscribed to our newsletter.'),
+        });
         setEmail('');
         setShowModal(true);
 
-        if (confetti) {
+        if (!alreadyRegistered && confetti) {
           confetti({
             particleCount: 120,
             spread: 90,
@@ -149,8 +159,14 @@ export default function NewsletterForm({ variant = 'card' }) {
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
           <div className="bg-white rounded-2xl shadow-lg p-8 max-w-sm w-full text-center relative">
-            <h3 className="text-2xl font-bold text-green-600 mb-2">🎉 Thank You!</h3>
-            <p className="text-gray-700">You're now subscribed to our newsletter.</p>
+            <h3 className="text-2xl font-bold text-green-600 mb-2">
+              {isAlreadyRegistered ? 'Welcome back!' : '🎉 Thank You!'}
+            </h3>
+            <p className="text-gray-700">
+              {isAlreadyRegistered
+                ? 'This email is already registered to our newsletter.'
+                : "You're now subscribed to our newsletter."}
+            </p>
             <button
               onClick={closeModal}
               className="mt-6 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md transition font-semibold"

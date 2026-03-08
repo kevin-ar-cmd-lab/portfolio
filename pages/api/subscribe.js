@@ -32,11 +32,17 @@ export default async function handler(req, res) {
 
     // Handle known status codes from Brevo
     if (response.status === 201) {
-      return res.status(200).json({ message: 'You have been subscribed successfully.' });
+      return res.status(200).json({
+        message: 'You are now subscribed to our newsletter.',
+        alreadyRegistered: false,
+      });
     }
 
     if (response.status === 204) {
-      return res.status(200).json({ message: 'You are already subscribed.' });
+      return res.status(200).json({
+        message: 'Welcome back! This email is already registered to the newsletter.',
+        alreadyRegistered: true,
+      });
     }
 
     const errorBody = await response.json();

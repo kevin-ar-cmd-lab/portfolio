@@ -70,7 +70,10 @@ export async function handler(event) {
     if (response.status === 201) {
       return {
         statusCode: 200,
-        body: JSON.stringify({ message: 'Subscribed successfully.' }),
+        body: JSON.stringify({
+          message: 'You are now subscribed to our newsletter.',
+          alreadyRegistered: false,
+        }),
       };
     }
 
@@ -78,7 +81,10 @@ export async function handler(event) {
     if (response.status === 204) {
       return {
         statusCode: 200,
-        body: JSON.stringify({ message: 'Already subscribed.' }),
+        body: JSON.stringify({
+          message: 'Welcome back! This email is already registered to the newsletter.',
+          alreadyRegistered: true,
+        }),
       };
     }
 

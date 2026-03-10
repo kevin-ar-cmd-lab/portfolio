@@ -58,7 +58,7 @@ export default function Footer() {
 
           {/* Stay Updated */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Stay Updated</h4>
+            {/*<h4 className="text-lg font-semibold mb-4">Stay Updated</h4>*/}
             <div className="max-w-sm">
               <NewsletterForm variant="compact" />
             </div>

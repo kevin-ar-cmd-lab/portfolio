@@ -138,14 +138,14 @@ netlify deploy --prod
 
 ---
 
-## API Routes
+## Function Endpoints
 
 | Endpoint             | Method | Description                        |
 | -------------------- | ------ | ---------------------------------- |
-| `/api/contact`       | POST   | Handles contact form submissions   |
-| `/api/subscribe`     | POST   | Handles newsletter subscriptions   |
+| `/.netlify/functions/contact`   | POST   | Handles contact form submissions   |
+| `/.netlify/functions/subscribe` | POST   | Handles newsletter subscriptions   |
 
-Both endpoints use the Brevo API to send transactional emails.
+Both endpoints are direct Netlify Function URLs and use the Brevo API.
 
 ---
 

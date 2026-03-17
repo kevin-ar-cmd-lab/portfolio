@@ -1,6 +1,6 @@
 # 🚀 Kevin's Digital Space
 
-![Portfolio Preview](https://raw.githubusercontent.com/<username>/<repo>/main/public/screenshot-image.jpg)
+![Portfolio Preview](https://raw.githubusercontent.com/kevin-ar-cmd-lab/portfolio/main/public/screenshot-image.jpg)
 
 ![Netlify Status](https://img.shields.io/badge/Deploy-Netlify-00C7B7?logo=netlify&logoColor=white)
 ![Next.js](https://img.shields.io/badge/Next.js-Framework-black?logo=next.js)
@@ -15,7 +15,7 @@ A high-performance, conversion-focused portfolio platform engineered to showcase
 
 ## 🌐 Live Demo
 
-[View Live Portfolio](https://your-site.netlify.app)
+[View Live Portfolio](https://kevinjuma.netlify.app)
 
 ---
 

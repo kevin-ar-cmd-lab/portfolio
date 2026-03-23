@@ -19,7 +19,7 @@
     "@vercel/speed-insights": "^1.2.0",
     "canvas-confetti": "^1.9.3",
     "framer-motion": "^7.10.3",
-    "next": "^16.1.6",
+    "next": "^16.1.7",
     "node-fetch": "^3.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { useTheme } from '../context/ThemeContext';
 
 export default function Blog() {
@@ -40,11 +41,15 @@ export default function Blog() {
                   darkMode ? 'bg-gray-800' : 'bg-white'
                 }`}
               >
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-48 object-cover"
-                />
+                <div className="relative w-full h-48">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
                 <div className="p-6">
                   <h2 className="text-xl font-semibold">{post.title}</h2>
                   <p className={darkMode ? 'text-gray-300 mt-2' : 'text-gray-600 mt-2'}>

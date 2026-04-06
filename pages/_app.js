@@ -4,14 +4,20 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import Layout from '../components/Layout';
+import ErrorBoundary from '../components/ErrorBoundary';
 import { ThemeProvider, useTheme } from '../context/ThemeContext';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { initErrorListeners } from '../lib/errorLogger';
 
 function AppWrapper({ Component, pageProps }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const getLayout = Component.getLayout || ((page) => <Layout>{page}</Layout>);
   const { darkMode } = useTheme();
+
+  useEffect(() => {
+    initErrorListeners();
+  }, []);
 
   useEffect(() => {
     const handleStart = () => setLoading(true);
@@ -34,10 +40,12 @@ function AppWrapper({ Component, pageProps }) {
         <link rel="icon" href="/logo.jpg" type="image/jpeg" />
       </Head>
       <SpeedInsights />
-      {loading && <Loader />}
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <ErrorBoundary>
+        {loading && <Loader />}
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ErrorBoundary>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Testimonials = ({ testimonials, darkMode }) => {
   const renderStars = (rating) => {
@@ -45,10 +46,12 @@ const Testimonials = ({ testimonials, darkMode }) => {
           }`}
         >
           <div className="flex items-center mb-4">
-            <img
+            <Image
               src={t.img}
               alt={t.name}
-              className="w-12 h-12 rounded-full mr-4 object-cover"
+              width={48}
+              height={48}
+              className="rounded-full mr-4 object-cover"
             />
             <div>
               <h4 className="font-semibold">{t.name}</h4>

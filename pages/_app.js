@@ -31,8 +31,7 @@ function AppWrapper({ Component, pageProps }) {
   return (
     <div className={darkMode ? 'dark' : ''}>
       <Head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/logo.jpg" type="image/jpeg" />
       </Head>
       <SpeedInsights />
       {loading && <Loader />}

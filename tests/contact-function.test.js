@@ -1,8 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
-// Mock fetch and node-fetch
+// Mock global fetch
 const mockFetch = vi.fn();
-vi.mock('node-fetch', () => ({ default: mockFetch }));
+vi.stubGlobal('fetch', mockFetch);
 
 // Import handler after mocks
 const { handler } = await import('../netlify/functions/contact.js');
@@ -65,6 +65,17 @@ describe('Contact function', () => {
     expect(result.statusCode).toBe(200);
     expect(JSON.parse(result.body).success).toBe(true);
     expect(mockFetch).toHaveBeenCalledOnce();
+  });
+
+  it('escapes HTML in user input to prevent XSS', async () => {
+    mockFetch.mockResolvedValue({ ok: true });
+    await handler({
+      httpMethod: 'POST',
+      body: JSON.stringify({ name: '<script>alert("xss")</script>', email: 'test@test.com', message: 'Hello <b>world</b>' }),
+    });
+    const callBody = JSON.parse(mockFetch.mock.calls[0][1].body);
+    expect(callBody.htmlContent).not.toContain('<script>');
+    expect(callBody.htmlContent).toContain('&lt;script&gt;');
   });
 
   it('handles Brevo API error', async () => {

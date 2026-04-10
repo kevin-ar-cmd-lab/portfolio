@@ -9,15 +9,19 @@ export const ThemeProvider = ({ children }) => {
 
   // Load saved theme on first render
   useEffect(() => {
-    const storedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    try {
+      const storedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
-      setDarkMode(true);
-      document.documentElement.classList.add('dark');
-    } else {
-      setDarkMode(false);
-      document.documentElement.classList.remove('dark');
+      if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+        setDarkMode(true);
+        document.documentElement.classList.add('dark');
+      } else {
+        setDarkMode(false);
+        document.documentElement.classList.remove('dark');
+      }
+    } catch {
+      // localStorage may be unavailable in private browsing mode
     }
   }, []);
 
@@ -25,7 +29,11 @@ export const ThemeProvider = ({ children }) => {
   const toggleDarkMode = () => {
     const newDarkMode = !darkMode;
     setDarkMode(newDarkMode);
-    localStorage.setItem('theme', newDarkMode ? 'dark' : 'light');
+    try {
+      localStorage.setItem('theme', newDarkMode ? 'dark' : 'light');
+    } catch {
+      // localStorage may be unavailable
+    }
 
     if (newDarkMode) {
       document.documentElement.classList.add('dark');

@@ -11,7 +11,9 @@
 // - Brevo success cases (201 = created, 204 = already exists)
 // - Brevo error cases with safe fallback parsing
 
-import fetch from 'node-fetch';
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+}
 
 export async function handler(event) {
   // Allow only POST requests
@@ -35,7 +37,7 @@ export async function handler(event) {
   }
 
   // Basic email validation
-  if (!email || typeof email !== 'string' || !email.includes('@')) {
+  if (!email || typeof email !== 'string' || !isValidEmail(email)) {
     return {
       statusCode: 400,
       body: JSON.stringify({ error: 'Invalid or missing email address.' }),

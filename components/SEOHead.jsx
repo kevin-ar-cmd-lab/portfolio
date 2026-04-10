@@ -39,8 +39,8 @@ export default function SEOHead({ seo = {}, schemaType = 'webpage' }) {
           url: `${siteUrl}/logo.jpg`
         }
       },
-      datePublished: datePublished || "2025-01-01",
-      dateModified: dateModified || "2025-01-01",
+      datePublished: datePublished || new Date().toISOString().split('T')[0],
+      dateModified: dateModified || new Date().toISOString().split('T')[0],
       url,
     };
   } else if (schemaType === "org") {

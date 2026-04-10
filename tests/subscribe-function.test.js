@@ -1,7 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
+// Mock global fetch
 const mockFetch = vi.fn();
-vi.mock('node-fetch', () => ({ default: mockFetch }));
+vi.stubGlobal('fetch', mockFetch);
 
 const { handler } = await import('../netlify/functions/subscribe.js');
 

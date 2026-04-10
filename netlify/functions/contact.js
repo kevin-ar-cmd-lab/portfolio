@@ -11,7 +11,18 @@
 //   "message": "Hello world"
 // }
 
-import fetch from 'node-fetch';
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+}
 
 export async function handler(event) {
   // Only allow POST.
@@ -44,7 +55,7 @@ export async function handler(event) {
   }
 
   // Validate email
-  if (typeof email !== 'string' || !email.includes('@')) {
+  if (typeof email !== 'string' || !isValidEmail(email)) {
     return {
       statusCode: 400,
       body: JSON.stringify({ error: 'Invalid email format.' }),
@@ -82,9 +93,9 @@ export async function handler(event) {
         to: [{ email: senderEmail }],
         replyTo: { email },
         subject: 'New Portfolio Contact Message',
-        htmlContent: ` <p><b>Name:</b> ${name}</p>
-          <p><b>Email:</b> ${email}</p>
-          <p>${message}</p> `,
+        htmlContent: `<p><b>Name:</b> ${escapeHtml(name)}</p>
+          <p><b>Email:</b> ${escapeHtml(email)}</p>
+          <p>${escapeHtml(message)}</p>`,
       }),
     });
 

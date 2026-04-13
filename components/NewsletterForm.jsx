@@ -1,6 +1,4 @@
-'use client';
-
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 let confetti;
 if (typeof window !== 'undefined') {
@@ -14,6 +12,8 @@ export default function NewsletterForm({ variant = 'card' }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
+  const modalRef = useRef(null);
+  const triggerRef = useRef(null);
 
   const validateEmail = (email) => {
     const trimmed = email.trim();
@@ -79,9 +79,23 @@ export default function NewsletterForm({ variant = 'card' }) {
     }
   };
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setShowModal(false);
-  };
+    triggerRef.current?.focus();
+  }, []);
+
+  // Focus the modal close button when it opens, and trap Escape key
+  useEffect(() => {
+    if (!showModal) return;
+    const closeBtn = modalRef.current?.querySelector('button');
+    closeBtn?.focus();
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') closeModal();
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [showModal, closeModal]);
 
   return (
     <>
@@ -135,6 +149,7 @@ export default function NewsletterForm({ variant = 'card' }) {
           />
           <button
             type="submit"
+            ref={triggerRef}
             disabled={isSubmitting}
             className={
               isCompact
@@ -157,9 +172,14 @@ export default function NewsletterForm({ variant = 'card' }) {
 
       {/* Modal Popup */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl shadow-lg p-8 max-w-sm w-full text-center relative">
-            <h3 className="text-2xl font-bold text-green-600 mb-2">
+        <div
+          className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="newsletter-modal-title"
+        >
+          <div ref={modalRef} className="bg-white rounded-2xl shadow-lg p-8 max-w-sm w-full text-center relative">
+            <h3 id="newsletter-modal-title" className="text-2xl font-bold text-green-600 mb-2">
               {isAlreadyRegistered ? 'Welcome back!' : '🎉 Thank You!'}
             </h3>
             <p className="text-gray-700">

@@ -22,3 +22,15 @@ html {
     scroll-behavior: auto !important;
   }
 }
+
+/* Layout padding for fixed navbars */
+body {
+  padding-top: 4rem;
+  padding-bottom: 3.5rem;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-bottom: 0;
+  }
+}

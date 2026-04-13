@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
@@ -132,19 +130,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-
-      {/* Global layout padding */}
-      <style jsx global>{`
-        body {
-          padding-top: 4rem;
-          padding-bottom: 3.5rem;
-        }
-        @media (min-width: 768px) {
-          body {
-            padding-bottom: 0;
-          }
-        }
-      `}</style>
     </>
   );
 }

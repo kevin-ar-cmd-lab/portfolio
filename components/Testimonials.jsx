@@ -14,6 +14,7 @@ const Testimonials = ({ testimonials, darkMode }) => {
             className={`fas fa-star ${
               darkMode ? 'text-yellow-300' : 'text-yellow-400'
             }`}
+            aria-hidden="true"
           ></i>
         );
       if (i === fullStars && hasHalfStar)
@@ -23,6 +24,7 @@ const Testimonials = ({ testimonials, darkMode }) => {
             className={`fas fa-star-half-alt ${
               darkMode ? 'text-yellow-300' : 'text-yellow-400'
             }`}
+            aria-hidden="true"
           ></i>
         );
       return (
@@ -31,6 +33,7 @@ const Testimonials = ({ testimonials, darkMode }) => {
           className={`far fa-star ${
             darkMode ? 'text-gray-600' : 'text-gray-300'
           }`}
+          aria-hidden="true"
         ></i>
       );
     });
@@ -66,7 +69,7 @@ const Testimonials = ({ testimonials, darkMode }) => {
             {`"${t.quote}"`}
           </p>
 
-          <div className="flex">{renderStars(t.rating)}</div>
+          <div className="flex" role="img" aria-label={`Rating: ${t.rating} out of 5 stars`}>{renderStars(t.rating)}</div>
         </div>
       ))}
     </div>

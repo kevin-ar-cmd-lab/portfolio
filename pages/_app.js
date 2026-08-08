@@ -42,9 +42,7 @@ function AppWrapper({ Component, pageProps }) {
       <SpeedInsights />
       <ErrorBoundary>
         {loading && <Loader />}
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        {getLayout(<Component {...pageProps} />)}
       </ErrorBoundary>
     </div>
   );

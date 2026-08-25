@@ -13,7 +13,7 @@ export default function Home() {
 
       {/* Greeting */}
       <p className="text-blue-500 font-semibold tracking-widest uppercase text-sm mb-3">
-        👋 Hi there, I'm
+        Hi there, I'm
       </p>
 
       {/* Profile Photo */}

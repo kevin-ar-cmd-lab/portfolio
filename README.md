@@ -1,5 +1,5 @@
 # 🚀 Kevin's Digital Workspace
-![Portfolio Preview](https://raw.githubusercontent.com/kevin-ar-cmd-lab/portfolio/5da8349c8e326838c2bef6598ce247825b7c1709/public/website-screenshot.png)
+![Portfolio Preview](https://raw.githubusercontent.com/kevin-ar-cmd-lab/portfolio/main/public/website-screenshot.png)
 
 ![Netlify Status](https://img.shields.io/badge/Deploy-Netlify-00C7B7?logo=netlify&logoColor=white)
 ![Next.js](https://img.shields.io/badge/Next.js-Framework-black?logo=next.js)

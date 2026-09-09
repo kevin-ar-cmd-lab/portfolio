@@ -1,5 +1,5 @@
 # 🚀 Kevin's Digital Workspace
-![Portfolio Preview](https://raw.githubusercontent.com/kevin-ar-cmd-lab/portfolio/5da8349c8e326838c2bef6598ce247825b7c1709/public/screenshot-image.jpg)
+![Portfolio Preview](https://raw.githubusercontent.com/kevin-ar-cmd-lab/portfolio/5da8349c8e326838c2bef6598ce247825b7c1709/public/website-screenshot.png)
 
 ![Netlify Status](https://img.shields.io/badge/Deploy-Netlify-00C7B7?logo=netlify&logoColor=white)
 ![Next.js](https://img.shields.io/badge/Next.js-Framework-black?logo=next.js)
@@ -8,7 +8,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Status](https://img.shields.io/badge/Status-Production--Ready-brightgreen)
 
-A high-performance, conversion-focused portfolio platform engineered to showcase services, drive client engagement, and streamline communication workflows. Built with modern web technologies and optimized for scalability, responsiveness, and user experience.
+A high-performance, conversion-focused portfolio platform engineered to showcase services, drive client engagement, and streamline communication workflows. Built with modern web technologies and optim[...]
 
 ---
 
@@ -76,3 +76,5 @@ context/             → Global state (e.g., theme management)
 hooks/               → Custom React hooks  
 netlify/functions/   → Serverless backend logic  
 public/              → Static assets (images, icons, CV, SEO files)
+
+```

@@ -3,7 +3,7 @@ export default function UiUxDesign() {
     <div className="max-w-4xl mx-auto px-6 py-12">
       <h1 className="text-3xl font-bold mb-6">UI/UX Design</h1>
 
-      <p className="text-gray-300 mb-8">
+      <p className="text-3xl font-bold mb-3">
         I design intuitive, conversion-focused user experiences built around customer psychology and
         modern interface standards. Every layout is crafted to boost engagement and business value.
       </p>
@@ -38,7 +38,7 @@ function Section({ title, children }) {
 
 function Workflow() {
   return (
-    <ol className="list-decimal pl-5 space-y-2 text-gray-300">
+    <ol className="list-decimal pl-5 space-y-2">
       <li>Research & Requirement Analysis</li>
       <li>Wireframing</li>
       <li>Visual Design</li>

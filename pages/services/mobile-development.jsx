@@ -3,7 +3,7 @@ export default function MobileDevelopment() {
     <div className="max-w-4xl mx-auto px-6 py-12">
       <h1 className="text-3xl font-bold mb-6">Mobile App Development</h1>
 
-      <p className="text-3xl font-bold mb-6">
+      <p className="text-3xl font-bold mb-3">
         I build cross-platform mobile applications using React Native— delivering high-performance,
         scalable apps for Android and iOS with modern UI/UX and business-driven features.
       </p>

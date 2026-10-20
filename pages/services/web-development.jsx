@@ -3,7 +3,7 @@ export default function WebDevelopment() {
     <div className="max-w-4xl mx-auto px-6 py-12">
       <h1 className="text-3xl font-bold mb-4">Web Development</h1>
 
-      <p className="text-gray-300 mb-8">
+      <p className="list-disc pl-5 space-y-5">
         I architect and deploy high-performance, scalable websites built on modern stacks such as
         Next.js, Tailwind CSS, and Node.js—optimized for SEO, responsiveness, and conversion.
       </p>
@@ -38,7 +38,7 @@ function Section({ title, children }) {
 
 function Workflow() {
   return (
-    <ol className="list-decimal pl-5 space-y-2 text-gray-300">
+    <ol className="list-disc pl-5 space-y-5">
       <li>Discovery & Requirements</li>
       <li>UI/UX Wireframes</li>
       <li>Frontend Development</li>

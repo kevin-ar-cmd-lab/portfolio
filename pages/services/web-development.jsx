@@ -3,13 +3,13 @@ export default function WebDevelopment() {
     <div className="max-w-4xl mx-auto px-6 py-12">
       <h1 className="text-3xl font-bold mb-4">Web Development</h1>
 
-      <p className="list-disc pl-5 space-y-5">
+      <p className="text-3xl mb-3">
         I architect and deploy high-performance, scalable websites built on modern stacks such as
         Next.js, Tailwind CSS, and Node.js—optimized for SEO, responsiveness, and conversion.
       </p>
 
       <Section title="What You Get">
-        <ul className="space-y-2 list-disc pl-5">
+        <ul className="space-y-2 list-disc pl-3">
           <li>Fully responsive design</li>
           <li>Custom UI components</li>
           <li>SEO-optimized architecture</li>

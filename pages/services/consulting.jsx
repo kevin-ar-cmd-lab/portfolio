@@ -3,7 +3,7 @@ export default function Consulting() {
     <div className="max-w-4xl mx-auto px-6 py-12">
       <h1 className="text-3xl font-bold mb-6">IT & Digital Consulting</h1>
 
-      <p className="list-disc pl-5 space-y-2">
+      <p className="text-3xl mb-3">
         I provide strategic, data-driven advisory that helps businesses modernize their digital
         footprint, deploy scalable solutions, and reduce operational risk.
       </p>

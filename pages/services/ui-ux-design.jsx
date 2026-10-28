@@ -3,7 +3,7 @@ export default function UiUxDesign() {
     <div className="max-w-4xl mx-auto px-6 py-12">
       <h1 className="text-3xl font-bold mb-6">UI/UX Design</h1>
 
-      <p className="text-3xl font-bold mb-3">
+      <p className="text-3xl mb-3">
         I design intuitive, conversion-focused user experiences built around customer psychology and
         modern interface standards. Every layout is crafted to boost engagement and business value.
       </p>

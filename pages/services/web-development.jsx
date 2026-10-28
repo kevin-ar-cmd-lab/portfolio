@@ -3,7 +3,7 @@ export default function WebDevelopment() {
     <div className="max-w-4xl mx-auto px-6 py-12">
       <h1 className="text-3xl font-bold mb-4">Web Development</h1>
 
-      <p className="text-3xl mb-3">
+      <p className="text-2xl mb-3">
         I architect and deploy high-performance, scalable websites built on modern stacks such as
         Next.js, Tailwind CSS, and Node.js—optimized for SEO, responsiveness, and conversion.
       </p>
